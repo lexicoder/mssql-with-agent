@@ -1,0 +1,11 @@
+sudo: required
+language: generic
+services:
+- docker
+before_install:
+  - sudo apt-get update
+script:
+  - docker build -t lexicoder/mssql-linux-agent:latest .
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push lexicoder/mssql-linux-agent:latest
