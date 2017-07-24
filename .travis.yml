@@ -1,7 +1,7 @@
 sudo: required
 language: generic
 services:
-- docker
+  - docker
 before_install:
   - sudo apt-get update
 script:
