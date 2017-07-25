@@ -5,7 +5,8 @@ services:
 before_install:
   - sudo apt-get update
 script:
-  - docker build -t lexicoder/mssql-linux-agent:latest .
+  - docker build -t lexicoder/mssql-linux-agent:latest . | tee /dev/stdout | grep 'mssql-server amd64' > version
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push lexicoder/mssql-linux-agent:latest
+  - version_array==($version) && docker tag lexicoder/mssql-linux-agent:${version_arrary[6]} 
+  - docker push lexicoder/mssql-linux-agent
