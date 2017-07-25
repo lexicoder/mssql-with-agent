@@ -1,6 +1,6 @@
+FROM ubuntu
 MAINTAINER Dimeji Isola <dimeji.isola@gmail.com>
 LABEL description="Microsoft SQL (mssql) server on ubuntu with sql server agent"
-FROM ubuntu
 EXPOSE 1433/tcp
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install curl apt-transport-https libunwind8 adduser libc6 libc++1 gdb bzip2 libnuma1 libjemalloc1 libc++1 gdb libcurl3 \ 
