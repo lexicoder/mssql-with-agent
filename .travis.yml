@@ -8,7 +8,6 @@ script:
   - docker build -t lexicoder/mssql-linux-agent:latest . | tee /dev/tty | grep 'mssql-server amd64' > version
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - cat version
   - version=$(< version) && version_array=($version) && export version_number=${version_array[6]}
   - docker tag lexicoder/mssql-linux-agent:latest lexicoder/mssql-linux-agent:$version_number
   - docker push lexicoder/mssql-linux-agent
