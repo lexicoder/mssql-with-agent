@@ -2,8 +2,6 @@ sudo: required
 language: generic
 services:
   - docker
-before_install:
-  - sudo apt-get update && sudo apt-get upgrade
 script:
   - docker build -t lexicoder/mssql-with-agent:latest . | tee /dev/tty | grep 'mssql-server amd64' > version
 after_success:
