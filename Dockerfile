@@ -8,7 +8,7 @@ RUN apt-get -y install curl apt-transport-https libunwind8 adduser libc6 libc++1
                             software-properties-common
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-RUN add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2017.list)"
+RUN add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-preview.list)"
 RUN apt-get update
 RUN ACCEPT_EULA=Y && apt-get install -y mssql-server
 RUN apt-get install -y mssql-server-agent
