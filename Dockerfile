@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:24.10
 MAINTAINER Dimeji Isola <dimeji.isola@gmail.com>
 LABEL description="Microsoft SQL (mssql) server on ubuntu with sql server agent"
 EXPOSE 1433/tcp
